@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "label": 'G-shock',
+        "title": 'Venice silver automatic',
+        "button_title": 'View watch',
+        "title_explore": 'Explore G-SHOCK',
+        "img_watch": 'slider-watch.png'
+    },
+    {
+        "id": 2,
+        "label": 'G-shock',
+        "title": 'Venice silver automatic',
+        "button_title": 'View watch',
+        "title_explore": 'Explore G-SHOCK',
+        "img_watch": 'slider-watch.png'
+    },
+    {
+        "id": 3,
+        "label": 'G-shock',
+        "title": 'Venice silver automatic',
+        "button_title": 'View watch',
+        "title_explore": 'Explore G-SHOCK',
+        "img_watch": 'slider-watch.png'
+    },
+    {
+        "id": 4,
+        "label": 'G-shock',
+        "title": 'Venice silver automatic',
+        "button_title": 'View watch',
+        "title_explore": 'Explore G-SHOCK',
+        "img_watch": 'slider-watch.png'
+    }
+]

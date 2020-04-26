@@ -1,0 +1,155 @@
+<section class="rectangle">
+  <form class="form-input">
+    <i class="fa fa-search" aria-hidden="true"></i>
+    <input class="input-field" type="text" placeholder="Type here to search...">
+  </form>
+
+  <div class="select-wrapper">
+    <select (change)="onChangeBrand($event)">
+      <option>Brands</option>
+      <option *ngFor="let brand of brands" [value]="brand.value">
+        <label>{{ brand.option }}</label>
+      </option>
+    </select>
+    <select (change)="onChangeColor($event)">
+      <option>Colors:</option>
+      <option *ngFor="let color of colors" [value]="color.value">
+        <label>{{ color.option }}</label>
+      </option>
+    </select>
+    <select (change)="onChangeMaterial($event)">
+      <option>Materials:</option>
+      <option *ngFor="let material of materials" [value]="material.value">
+        <label>{{ material.option }}</label>
+      </option>
+    </select>
+    <select (change)="onChangeFeature($event)">
+      <option>Features:</option>
+      <option *ngFor="let feature of features" [value]="feature.value">
+        <label>{{ feature.option }}</label>
+      </option>
+    </select>
+    <select (change)="onChangePrice($event)">
+      <option>Price:</option>
+      <option *ngFor="let price of prices" [value]="price.value">
+        <label>{{ price.option }}</label>
+      </option>
+    </select>
+    <select (change)="onChangeGender($event)">
+      <option>Gender:</option>
+      <option *ngFor="let gender of genders" [value]="gender.value">
+        <label>{{ gender.option }}</label>
+      </option>
+    </select>
+  </div>
+</section>
+
+<section class="selected-items">
+  <div class="selected-item" *ngFor="let filter of filters; let i = index">
+    <span class="selected-item-name">{{ filter }}</span>
+    <span class="close-item" (click)="removeFilterItem(i)">X</span>
+  </div>
+</section>
+
+<div class="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Image</th>
+        <th class="third-col">Brand</th>
+        <th>Item No.</th>
+        <th>Listing</th>
+        <th>Wholesale</th>
+        <th>QTY</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let tableRow of tableRows">
+        <tr class="body-row" (click)="tableRow.showMore = !tableRow.showMore" [class.inactive]="!tableRow.showMore">
+          <td>
+            <i class="fa fa-star-o" aria-hidden="true" (click)="tableRow.isBrown = !tableRow.isBrown" [class.inactive]="tableRow.isBrown">
+            </i>
+            <i class="fa fa-star" aria-hidden="true" (click)="tableRow.isBrown = !tableRow.isBrown" [class.inactive]="!tableRow.isBrown">
+            </i>
+          </td>
+          <td>
+            <img [src]="tableRow.img_table_watch" [alt]="tableRow.img_table_watch">
+          </td>
+          <td class="third-col">
+            <div class="brand-name">{{ tableRow.brand_name }}</div>
+            <span class="brand-collection">{{ tableRow.brand_collection }}</span>
+          </td>
+          <td class="item-no">{{ tableRow.item_no }}</td>
+          <td class="table-price">{{ tableRow.listing_price | currency:'USD':'symbol':'1.2' }}</td>
+          <td class="table-price">{{ tableRow.wholesale_price | currency:'USD':'symbol':'1.2' }}</td>
+          <td>
+            <div class="qty">
+              <span class="caret-quantity">{{ tableRow.quantity }}</span>
+              <div class="carets">
+                <i class="fa fa-caret-up" aria-hidden="true"></i>
+                <i class="fa fa-caret-down" aria-hidden="true"></i>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="info-stock" *ngIf="tableRow.low_on_stock">
+              <i class="fa fa-info-circle" aria-hidden="true"></i>
+              <span class="stock-title">Low on stock</span>
+            </div>
+            <button class="add-button" 
+              (click)="switchButtonAndAddWatch(tableRow)" 
+              *ngIf="!tableRow.out_of_stock"
+              [class.disabled]="tableRow.isAddButtonDisabled">
+              <span class="add-button-title" *ngIf="!tableRow.isAddButtonDisabled">ADD</span>
+              <span class="added-button-title" *ngIf="tableRow.isAddButtonDisabled">ADDED</span>
+              <i class="fa fa-shopping-cart" aria-hidden="true" *ngIf="!tableRow.isAddButtonDisabled"></i>
+              <i class="fa fa-check" aria-hidden="true" *ngIf="tableRow.isAddButtonDisabled"></i>
+            </button>
+            <button class="out-stock-button" *ngIf="tableRow.out_of_stock">
+              <img src="../../assets/images/empty-cart.png" alt="table-watch4">
+              OUT OF STOCK
+            </button>
+          </td>
+          <td class="chevron">
+            <i class="fa fa-chevron-down" aria-hidden="true" *ngIf="!tableRow.isAddButtonDisabled"></i>
+            <i class="fa fa-chevron-up" aria-hidden="true" *ngIf="tableRow.isAddButtonDisabled"></i>
+          </td>
+        </tr>
+        <tr class="row-footer" *ngIf="tableRow.showMore">
+          <td>
+            <span>more info</span>
+          </td>
+          <td>
+            <span>more info</span>
+          </td>
+          <td>
+            <span>more info</span>
+          </td>
+          <td>
+            <span>more info</span>
+          </td>
+          <td>
+            <span>more info</span>
+          </td>
+          <td>
+            <span>more info</span>
+          </td>
+          <td>
+            <span>more info</span>
+          </td>
+          <td>
+            <span>more info</span>
+          </td>
+          <td>
+            <a href="http://www.google.com" target="_blank">
+              <i class="fa fa-external-link" aria-hidden="true"></i>
+            </a>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

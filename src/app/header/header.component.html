@@ -1,0 +1,94 @@
+<header>
+    <div class="header-wrapper">
+        <div class="header">
+            <div class="header-left-side">
+                <div class="header-title-box">
+                    <span class="header-title">Ipsums</span>
+                    <span class="header-subtitle">Dev test task</span>
+                </div>
+
+                <div class="header-second-title-box">
+                    <span class="header-second-title">Browse products</span>
+                </div>
+
+                <span class="title-info">Company info</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            </div>
+
+            <div class="header-right-side">
+                <div class="price-box">
+                    <div class="cart">
+                        <div class="cart-badge"></div>
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <!-- <div class="preview-boxes">
+                            <div class="preview-box">
+                                <div class="preview-box-body">
+                                    <img class="preview-box-watch-img" :src="('src/assets/images/' + cartWatch.img_table_watch)">
+                                    <div class="data-watch-wrapper">
+                                        <span class="preview-box-watch-name"></span>
+                                        <span class="preview-box-watch-collection"></span>
+                                    </div>
+                                    <span class="preview-box-watch-no"></span>
+                                    <div class="remove-header-watch">X</div>
+                                </div>
+                                <span class="preview-box-footer">Has been successfully added to your cart!</span>
+                            </div>
+                        </div> -->
+                    </div>
+
+                    <div class="price-title">Total:
+                        <span class="total-price"></span>
+                    </div>
+                    
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    <span class="company-name">Company Name</span>
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                </div>
+            </div>
+
+            <div class="menu-bar">
+                <div class="dropbtn">
+                    <i class="fa fa-bars" aria-hidden="true" (click)="showDropdownMenu = !showDropdownMenu"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dropdown-content" *ngIf="showDropdownMenu">
+        <ul class="dropdown-menu">
+            <li class="header-second-title">
+                Browse products
+            </li>
+            <li>
+                <span class="title-info">Company info</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            </li>
+            <li class="cart">
+                <div class="cart-badge"></div>
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <div class="price-title">Total:
+                    <span class="total-price"></span>
+                </div>
+                <!-- <div class="preview-boxes">
+                    <div class="preview-box" v-for="(cartWatch, index) in cartWatches" :key="cartWatch.id">
+                        <div class="preview-box-body">
+                            <img class="preview-box-watch-img" :src="('src/assets/images/' + cartWatch.img_table_watch)">
+                            <div class="data-watch-wrapper">
+                                <span class="preview-box-watch-name">{{ cartWatch.brand_name }}</span>
+                                <span class="preview-box-watch-collection">{{ cartWatch.brand_collection }}</span>
+                            </div>
+                            <span class="preview-box-watch-no">{{ cartWatch.item_no }}</span>
+                            <div class="remove-header-watch" @click="removeCartWatch(cartWatch)">X</div>
+                        </div>
+                        <span class="preview-box-footer" v-if="index == cartWatches.length - 1">Has been successfully added to your cart!</span>
+                    </div>
+                </div> -->
+            </li>
+            <li>
+                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                <span class="company-name">Company Name</span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            </li>
+        </ul>
+    </div>
+</header>
