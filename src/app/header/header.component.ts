@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommunicationService } from '../services/communication.service';
 
 @Component({
   selector: 'app-header',
@@ -9,12 +10,11 @@ export class HeaderComponent implements OnInit {
   showDropdownMenu: boolean = false;
   cartWatches: any[] = [];
   cartPrice: number = 0;
-  sidebarToggle: boolean = false;
 
-  constructor() { }
+  constructor(private communicationService: CommunicationService) { }
 
   isSidebarOpen(): void {
-    this.sidebarToggle = !this.sidebarToggle;
+    this.communicationService.toggleSideBar = !this.communicationService.toggleSideBar;
   }
 
   ngOnInit(): void {

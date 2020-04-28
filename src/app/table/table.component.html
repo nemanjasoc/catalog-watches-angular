@@ -1,4 +1,4 @@
-<app-sidebar [receivedIsSidebarOpenEvent]="sidebarToggle"></app-sidebar>
+<app-sidebar *ngIf="communicationService.toggleSideBar"></app-sidebar>
 <section class="rectangle">
   <form class="form-input">
     <i class="fa fa-search" aria-hidden="true"></i>

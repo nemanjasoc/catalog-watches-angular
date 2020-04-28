@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectBrand, SelectColor, SelectMaterial, SelectFeature, SelectPrice, SelectGender, TableRow } from './table';
+import { CommunicationService } from '../services/communication.service';
 
 @Component({
   selector: 'app-table',
@@ -154,7 +155,7 @@ export class TableComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor(public communicationService: CommunicationService) { }
 
   onChangeBrand(event): void {
     if (event.currentTarget.selectedIndex !== 0) {
