@@ -17,23 +17,23 @@
 
             <div class="header-right-side">
                 <div class="price-box">
-                    <div class="cart">
-                        <div class="cart-badge"></div>
+                    <div class="cart" (click)="isSidebarOpen()">
+                        <div class="cart-badge">{{ cartWatches.length }}</div>
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        <!-- <div class="preview-boxes">
+                        <div class="preview-boxes" *ngFor="let cartWatch of cartWatches; let i = index">
                             <div class="preview-box">
                                 <div class="preview-box-body">
-                                    <img class="preview-box-watch-img" :src="('src/assets/images/' + cartWatch.img_table_watch)">
+                                    <img class="preview-box-watch-img" [src]="('src/assets/images/' + cartWatch.img_table_watch)">
                                     <div class="data-watch-wrapper">
-                                        <span class="preview-box-watch-name"></span>
-                                        <span class="preview-box-watch-collection"></span>
+                                        <span class="preview-box-watch-name">{{ cartWatch.brand_name }}</span>
+                                        <span class="preview-box-watch-collection">{{ cartWatch.brand_collection }}</span>
                                     </div>
-                                    <span class="preview-box-watch-no"></span>
+                                    <span class="preview-box-watch-no">{{ cartWatch.item_no }}</span>
                                     <div class="remove-header-watch">X</div>
                                 </div>
-                                <span class="preview-box-footer">Has been successfully added to your cart!</span>
+                                <span class="preview-box-footer"  *ngIf="i == cartWatches.length - 1">Has been successfully added to your cart!</span>
                             </div>
-                        </div> -->
+                        </div>
                     </div>
 
                     <div class="price-title">Total:
@@ -64,25 +64,25 @@
                 <i class="fa fa-chevron-down" aria-hidden="true"></i>
             </li>
             <li class="cart">
-                <div class="cart-badge"></div>
+                <div class="cart-badge">{{ cartWatches.length }}</div>
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 <div class="price-title">Total:
                     <span class="total-price"></span>
                 </div>
-                <!-- <div class="preview-boxes">
-                    <div class="preview-box" v-for="(cartWatch, index) in cartWatches" :key="cartWatch.id">
+                <div class="preview-boxes">
+                    <div class="preview-box" *ngFor="let cartWatch of cartWatches; let i = index">
                         <div class="preview-box-body">
-                            <img class="preview-box-watch-img" :src="('src/assets/images/' + cartWatch.img_table_watch)">
+                            <img class="preview-box-watch-img" >
                             <div class="data-watch-wrapper">
                                 <span class="preview-box-watch-name">{{ cartWatch.brand_name }}</span>
                                 <span class="preview-box-watch-collection">{{ cartWatch.brand_collection }}</span>
                             </div>
                             <span class="preview-box-watch-no">{{ cartWatch.item_no }}</span>
-                            <div class="remove-header-watch" @click="removeCartWatch(cartWatch)">X</div>
+                            <div class="remove-header-watch">X</div>
                         </div>
-                        <span class="preview-box-footer" v-if="index == cartWatches.length - 1">Has been successfully added to your cart!</span>
+                        <span class="preview-box-footer" *ngIf="i == cartWatches.length - 1">Has been successfully added to your cart!</span>
                     </div>
-                </div> -->
+                </div>
             </li>
             <li>
                 <i class="fa fa-user-circle-o" aria-hidden="true"></i>

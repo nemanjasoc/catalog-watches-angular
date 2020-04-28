@@ -9,17 +9,6 @@ import { SelectBrand, SelectColor, SelectMaterial, SelectFeature, SelectPrice, S
 export class TableComponent implements OnInit {
   filters: string[] = [];
 
-  colorItems: [];
-  colorItem: string;
-  materialItems: [];
-  materialItem: string;
-  featureItems: [];
-  featureItem: string;
-  priceItems: [];
-  priceItem: string;
-  genderItems: [];
-  genderItem: string;
-
   brands: SelectBrand[] = [
     { value: 1, option: 'Garmin' },
     { value: 2, option: 'Alfred Sung' },

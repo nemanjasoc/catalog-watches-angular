@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,9 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  isSidebarOpen: boolean = false;
+  @Input() receivedIsSidebarOpenEvent: boolean;
+  @Output() eventToEmitInTableComponent = new EventEmitter<boolean>();
 
   constructor() { }
 
+  sendEventToParent(message: boolean): void {
+    this.eventToEmitInTableComponent.emit(message);
+  }
+  
   ngOnInit(): void {
   }
 
