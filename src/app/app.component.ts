@@ -2,11 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: `<app-header></app-header>
-            <app-banner></app-banner>
-            <app-table></app-table>
-            <app-box></app-box>
-            <app-footer></app-footer>`
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
   title = 'catalog-watches';

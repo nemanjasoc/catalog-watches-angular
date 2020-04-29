@@ -3,8 +3,8 @@
         <span>My Cart</span>
     </div>
     <div class="sidebar-body">
-        <div class="watch-sidebar-list" *ngFor="let cartWatch in cartWatches">
-            <div class="remove-sidebar-watch" >X</div>
+        <div class="watch-sidebar-list" *ngFor="let cartWatch of communicationService.cartWatches">
+            <div class="remove-sidebar-watch" (click)="removeCartWatch(cartWatch)">X</div>
             <div class="data-sidebar-watch-wrapper">
                 <span class="sidebar-watch-name">{{ cartWatch.brand_name }}</span>
                 <span class="sidebar-watch-collection">{{ cartWatch.brand_collection }}</span>
@@ -12,9 +12,11 @@
             <div class="watch-sidebar-listing-price">{{ cartWatch.listing_price | currency:'USD':'symbol':'1.2' }}</div>
             <div class="quantity">{{ cartWatch.quantity }}</div>
             <div class="carets">
-                <i class="fa fa-caret-up" aria-hidden="true">
+                <i class="fa fa-caret-up" aria-hidden="true"
+                    (click)="increaseWatchNumberAndSum(cartWatch)">
                 </i>
                 <i class="fa fa-caret-down" aria-hidden="true" 
+                    (click)="decreaseWatchNumberAndSum(cartWatch)"
                     [class.disabled]="cartWatch.isDecreaseQuantityDisabled">
                 </i>
             </div>
@@ -23,7 +25,7 @@
     <div class="sidebar-footer">
         <div class="sum-container">
             <label>Title:</label>
-            <span class="sum"></span>
+            <span class="sum">{{ communicationService.cartPrice | currency:'USD':'symbol':'1.2' }}</span>
         </div>
         <button class="checkout-button">CHECKOUT</button>
     </div>

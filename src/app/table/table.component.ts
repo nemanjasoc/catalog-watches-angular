@@ -202,12 +202,10 @@ export class TableComponent implements OnInit {
     tableRow.added = !tableRow.added;
     tableRow.quantity = 1;
     tableRow.isAddButtonDisabled = true;
-
-    // this.cartWatches.push(tableRow);
-    // this.$store.commit('setCartWatch', this.cartWatches);
-
-    // let newCartPrice = (this.cartPrice + tableRow.listing_price);
-    // this.$store.commit('setCartPrice',  newCartPrice);
+    this.communicationService.cartWatches.push(tableRow);
+    
+    let newCartPrice = (this.communicationService.cartPrice + tableRow.listing_price);
+    this.communicationService.cartPrice = newCartPrice;
   }
 
   ngOnInit(): void {

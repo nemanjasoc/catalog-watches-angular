@@ -97,7 +97,7 @@ header {
     color: #a67f66;
 }
 
-.cart:hover.preview-boxes {
+.cart:hover .preview-boxes {
     opacity: 1;
 }
 

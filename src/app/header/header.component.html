@@ -18,26 +18,26 @@
             <div class="header-right-side">
                 <div class="price-box">
                     <div class="cart" (click)="isSidebarOpen()">
-                        <div class="cart-badge">{{ cartWatches.length }}</div>
+                        <div class="cart-badge">{{ communicationService.cartWatches.length }}</div>
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        <div class="preview-boxes" *ngFor="let cartWatch of cartWatches; let i = index">
-                            <div class="preview-box">
+                        <div class="preview-boxes">
+                            <div class="preview-box" *ngFor="let cartWatch of communicationService.cartWatches; let i = index">
                                 <div class="preview-box-body">
-                                    <img class="preview-box-watch-img" [src]="('src/assets/images/' + cartWatch.img_table_watch)">
+                                    <img class="preview-box-watch-img" [src]="cartWatch.img_table_watch">
                                     <div class="data-watch-wrapper">
                                         <span class="preview-box-watch-name">{{ cartWatch.brand_name }}</span>
                                         <span class="preview-box-watch-collection">{{ cartWatch.brand_collection }}</span>
                                     </div>
                                     <span class="preview-box-watch-no">{{ cartWatch.item_no }}</span>
-                                    <div class="remove-header-watch">X</div>
+                                    <div class="remove-header-watch" (click)="removeCartWatch(cartWatch)">X</div>
                                 </div>
-                                <span class="preview-box-footer"  *ngIf="i == cartWatches.length - 1">Has been successfully added to your cart!</span>
+                                <span class="preview-box-footer" *ngIf="i == communicationService.cartWatches.length - 1">Has been successfully added to your cart!</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="price-title">Total:
-                        <span class="total-price"></span>
+                        <span class="total-price">{{ communicationService.cartPrice | currency:'USD':'symbol':'1.2' }}</span>
                     </div>
                     
                     <i class="fa fa-user-circle-o" aria-hidden="true"></i>
@@ -63,24 +63,24 @@
                 <span class="title-info">Company info</span>
                 <i class="fa fa-chevron-down" aria-hidden="true"></i>
             </li>
-            <li class="cart">
-                <div class="cart-badge">{{ cartWatches.length }}</div>
+            <li class="cart" (click)="isSidebarOpen()">
+                <div class="cart-badge">{{ communicationService.cartWatches.length }}</div>
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 <div class="price-title">Total:
-                    <span class="total-price"></span>
+                    <span class="total-price">{{ communicationService.cartPrice | currency:'USD':'symbol':'1.2' }}</span>
                 </div>
                 <div class="preview-boxes">
-                    <div class="preview-box" *ngFor="let cartWatch of cartWatches; let i = index">
+                    <div class="preview-box" *ngFor="let cartWatch of communicationService.cartWatches; let i = index">
                         <div class="preview-box-body">
-                            <img class="preview-box-watch-img" >
+                            <img class="preview-box-watch-img" [src]="cartWatch.img_table_watch">
                             <div class="data-watch-wrapper">
                                 <span class="preview-box-watch-name">{{ cartWatch.brand_name }}</span>
                                 <span class="preview-box-watch-collection">{{ cartWatch.brand_collection }}</span>
                             </div>
                             <span class="preview-box-watch-no">{{ cartWatch.item_no }}</span>
-                            <div class="remove-header-watch">X</div>
+                            <div class="remove-header-watch" (click)="removeCartWatch(cartWatch)">X</div>
                         </div>
-                        <span class="preview-box-footer" *ngIf="i == cartWatches.length - 1">Has been successfully added to your cart!</span>
+                        <span class="preview-box-footer" *ngIf="i == communicationService.cartWatches.length - 1">Has been successfully added to your cart!</span>
                     </div>
                 </div>
             </li>

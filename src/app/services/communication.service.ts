@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class CommunicationService {
   toggleSideBar = false;
+  cartWatches: any[] = [];
+  cartPrice: number = 0;
 
   constructor() { }
 
