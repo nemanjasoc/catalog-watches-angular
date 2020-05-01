@@ -1,0 +1,22 @@
+<owl-carousel-o [options]="customOptions"> 
+    <ng-container *ngFor="let slide of slides">
+        <ng-template carouselSlide>
+            <div class="slide-container">
+                <div class="slide-wrapper">
+                    <span class="slide-label">{{ slide.label }}</span>
+                    <span class="slide-title">{{ slide.title }}</span>
+                    <div class="button-wrapper">
+                        <button class="slide-button">{{ slide.button_title }}</button>
+                        <span class="title-explore">{{ slide.title_explore }}</span>
+                        <div class="explore-arrow">
+                            <img src="../../assets/images/arrow-right.png" alt="explore-arrow">
+                        </div>
+                    </div>
+                </div>
+                <div class="banner-watch">
+                    <img [src]="slide.img_watch" [alt]="slide.img_watch">
+                </div>
+            </div>
+        </ng-template>
+    </ng-container>  
+</owl-carousel-o>

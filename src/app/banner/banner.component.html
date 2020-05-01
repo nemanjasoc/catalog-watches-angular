@@ -1,3 +1,20 @@
 <div class="banner-container">
-
+    <app-carousel></app-carousel>
+    <div class="slider-boxes">
+        <div class="left-box">
+            <i class="fa fa-long-arrow-left" aria-hidden="true" 
+                (mouseover)="showPreviousWatchThumbnailImage()" 
+                (mouseleave)="hidePreviousWatchThumbnailImage()">
+            </i>
+        </div>
+        <div class="right-box">
+            <i class="fa fa-long-arrow-right" aria-hidden="true" 
+                (mouseover)="showNextWatchThumbnailImage()" 
+                (mouseleave)="hideNextWatchThumbnailImage()">
+            </i>
+        </div>     
+        <div class="watch-thumbnail">
+            <img class="thumbnail-watch-img" [src]="watchThumbnailImage" [alt]="watchThumbnailImage">
+        </div>
+    </div>
 </div>

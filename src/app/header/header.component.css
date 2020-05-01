@@ -85,7 +85,7 @@ header {
     align-items: center;
 }
 
-.price-box.fa-chevron-down {
+.price-box .fa-chevron-down {
     padding-right: 20px;
     color: #2f4061;
 }
@@ -300,9 +300,15 @@ header {
     }
 
     .header-second-title-box,
-    .title-info,
-    .fa-chevron-down,
     .header-right-side {
+        display: none;
+    }
+
+    .header-left-side .fa-chevron-down {
+        display: none;
+    }
+
+    .header-left-side .title-info {
         display: none;
     }
 
@@ -342,6 +348,10 @@ header {
         position: absolute;
         right: -18px;
         bottom: 7px;
+    }
+
+    .company-name-chevron .fa-chevron-down {
+        color: #2f4061;
     }
 
     .cart-badge {
