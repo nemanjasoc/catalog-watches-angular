@@ -5,7 +5,7 @@ import { ThumbnailImage } from './banner';
 @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
-  styleUrls: ['./banner.component.css']
+  styleUrls: ['./banner.component.scss']
 })
 export class BannerComponent implements OnInit {
   watchThumbnailImage: string = 'assets/images/thumbnail-watch.png';

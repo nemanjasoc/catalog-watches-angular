@@ -1,0 +1,64 @@
+@import 'src/scss/mixins';
+@import 'src/scss/variables';
+
+.box-container {
+    display: flex;
+    flex-direction: column;
+    border-top: 3px solid $base-blue;
+}
+
+.box-row {
+    display: flex;
+    width: 100%;
+}
+
+.box-img {
+    width: 50%;
+    height: auto;
+}
+
+.empty-box {
+    width: 50%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.empty-box-runner-inner {
+    background-color: $main-color;
+    right: 20%;
+    @include empty-box-inner;
+
+    h1 {
+        color: #a9836b;
+        font-family: "Sample";
+    }
+
+    p {
+        color: #4a5874;
+    }
+}
+
+.inner-content {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    font-size: 1vw;
+}
+
+.empty-box-watch-inner {
+    background-color: $base-blue;
+    left: 20%;
+    @include empty-box-inner;
+
+    h1 {
+        color: #ffffff;
+        font-family: "Sample";
+    }
+
+    p {
+        color: #ffffff;
+    }
+}

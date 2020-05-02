@@ -1,3 +1,5 @@
+@import 'src/scss/variables';
+
 aside {
     width: 305px;
     position: absolute;
@@ -9,11 +11,11 @@ aside {
     opacity: 1;
     transition: all 0.4s;
     -webkit-transition: all 0.4s;
-}
 
-aside.inactive {
-    opacity: 0;
-    z-index: -1;
+    &.inactive {
+        opacity: 0;
+        z-index: -1;
+    }
 }
 
 .sidebar-header {
@@ -85,9 +87,11 @@ aside.inactive {
     color: #897769;
 }
 
-.fa-caret-down.disabled {
-    opacity: 0.2;
-    pointer-events: none;
+.fa-caret-down {
+    &.disabled {
+        opacity: 0.2;
+        pointer-events: none;
+    }
 }
 
 .sidebar-footer {
@@ -102,8 +106,10 @@ aside.inactive {
     flex-direction: column;
 }
 
-.sum-container label {
-    color: #2e3c57;
+.sum-container {
+    label {
+        color: #2e3c57;
+    }
 }
 
 .sum {
@@ -113,7 +119,7 @@ aside.inactive {
 }
 
 .checkout-button {
-    background-color: #304061;
+    background-color: $footer-text-color;
     color: #ffffff;
     outline: none;
     border: none;

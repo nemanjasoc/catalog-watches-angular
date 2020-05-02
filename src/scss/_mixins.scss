@@ -1,0 +1,25 @@
+@mixin empty-box-inner {
+    width: 90%;
+    height: 70%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1vw;
+    line-height: 2vw;
+}
+
+@mixin box-shadow($property...) {
+	-webkit-box-shadow: $property;
+    -moz-box-shadow: $property;
+    -o-box-shadow: $property;
+    box-shadow: $property;
+}
+
+@mixin banner-boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 114px;
+    height: 114px;
+}
