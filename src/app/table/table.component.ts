@@ -9,6 +9,8 @@ import { CommunicationService } from '../services/communication.service';
 })
 export class TableComponent implements OnInit {
   filters: string[] = [];
+  tableData: TableRow[] = [];
+  errorMessage: string;
 
   brands: SelectBrand[] = [
     { value: 1, option: 'Garmin' },
@@ -50,112 +52,17 @@ export class TableComponent implements OnInit {
     { value: 2, option: 'Female' },
     { value: 3, option: 'Other' }
   ];
-  tableRows: TableRow[] = [
-    {
-      id: 1,
-      img_table_watch: 'assets/images/table-watch1.png',
-      brand_name: 'ALFRED SUNG',
-      brand_collection: 'Slim Collection Series 5',
-      item_no: 'AS7104SL-1A',
-      listing_price: 3700,
-      wholesale_price: 3700,
-      quantity: 0,
-      low_on_stock: true,
-      out_of_stock: false,
-      isBrown: false,
-      showMore: false,
-      added: false,
-      isDecreaseQuantityDisabled: true,
-      isAddButtonDisabled: false,
-    },
-    {
-      id: 2,
-      img_table_watch: 'assets/images/table-watch2.png',
-      brand_name: 'GARMIN',
-      brand_collection: 'Classic Collection',
-      item_no: 'AW2304WE-9Q',
-      listing_price: 4200,
-      wholesale_price: 4000,
-      quantity: 0,
-      low_on_stock: false,
-      out_of_stock: false,
-      isBrown: false,
-      showMore: false,
-      added: false,
-      isDecreaseQuantityDisabled: true,
-      isAddButtonDisabled: false
-    },
-    {
-      id: 3,
-      img_table_watch: 'assets/images/table-watch1.png',
-      brand_name: 'ALFRED SUNG',
-      brand_collection: 'Slim Collection Series 5',
-      item_no: 'AS7104SL-1A',
-      listing_price: 3700,
-      wholesale_price: 3700,
-      quantity: 0,
-      low_on_stock: false,
-      out_of_stock: false,
-      isBrown: false,
-      showMore: false,
-      added: false,
-      isDecreaseQuantityDisabled: true,
-      isAddButtonDisabled: false
-    },
-    {
-      id: 4,
-      img_table_watch: 'assets/images/table-watch3.png',
-      brand_name: 'WRANGLER',
-      brand_collection: 'Western Collection',
-      item_no: 'AS7494SL-8R',
-      listing_price: 5600,
-      wholesale_price: 5200,
-      quantity: 0,
-      low_on_stock: false,
-      out_of_stock: false,
-      isBrown: false,
-      showMore: false,
-      added: false,
-      isDecreaseQuantityDisabled: true,
-      isAddButtonDisabled: false
-    },
-    {
-      id: 5,
-      img_table_watch: 'assets/images/table-watch1.png',
-      brand_name: 'ALFRED SUNG',
-      brand_collection: 'Slim Collection Series 5',
-      item_no: 'AS7104SL-1A',
-      listing_price: 3700,
-      wholesale_price: 3700,
-      quantity: 0,
-      low_on_stock: false,
-      out_of_stock: true,
-      isBrown: false,
-      showMore: false,
-      added: false,
-      isDecreaseQuantityDisabled: true,
-      isAddButtonDisabled: false
-    },
-    {
-      id: 6,
-      img_table_watch: 'assets/images/table-watch4.png',
-      brand_name: 'GARMIN',
-      brand_collection: 'Classic Collection Series 6',
-      item_no: 'AS2E0G8E-2U',
-      listing_price: 2100,
-      wholesale_price: 2000,
-      quantity: 0,
-      low_on_stock: false,
-      out_of_stock: false,
-      isBrown: false,
-      showMore: false,
-      added: false,
-      isDecreaseQuantityDisabled: true,
-      isAddButtonDisabled: false
-    }
-  ]
 
   constructor(public communicationService: CommunicationService) { }
+
+  ngOnInit(): void {
+    this.communicationService.getTableData().subscribe({
+      next: tableData => {
+        this.tableData = tableData;
+      },
+      error: err => this.errorMessage = err
+    })
+  }
 
   onChangeBrand(event): void {
     if (event.currentTarget.selectedIndex !== 0) {
@@ -206,9 +113,6 @@ export class TableComponent implements OnInit {
     
     let newCartPrice = (this.communicationService.cartPrice + tableRow.listing_price);
     this.communicationService.cartPrice = newCartPrice;
-  }
-
-  ngOnInit(): void {
   }
 
 }

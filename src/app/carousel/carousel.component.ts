@@ -46,6 +46,9 @@ export class CarouselComponent implements OnInit {
     ]
   }
 
+  ngOnInit(): void {
+  }
+
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -69,9 +72,6 @@ export class CarouselComponent implements OnInit {
       }
     },
     nav: false
-  }
-
-  ngOnInit(): void {
   }
 
 }

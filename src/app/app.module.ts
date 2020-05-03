@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -28,7 +29,8 @@ import { CarouselComponent } from './carousel/carousel.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    CarouselModule
+    CarouselModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

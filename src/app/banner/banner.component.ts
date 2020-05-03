@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ThumbnailImage } from './banner';
 
-
 @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
@@ -17,6 +16,9 @@ export class BannerComponent implements OnInit {
   ]
 
   constructor() { }
+
+  ngOnInit(): void {
+  }
 
   showPreviousWatchThumbnailImage() {
     var newImage: any;
@@ -54,9 +56,6 @@ export class BannerComponent implements OnInit {
 
   hideNextWatchThumbnailImage() {
     this.showPreviousWatchThumbnailImage();
-  }
-
-  ngOnInit(): void {
   }
 
 }

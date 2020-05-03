@@ -11,6 +11,9 @@ export class HeaderComponent implements OnInit {
 
   constructor(public communicationService: CommunicationService) { }
 
+  ngOnInit(): void {
+  }
+
   isSidebarOpen(): void {
     this.communicationService.toggleSideBar = !this.communicationService.toggleSideBar;
   }
@@ -41,8 +44,5 @@ export class HeaderComponent implements OnInit {
     this.communicationService.cartWatches = newCartWatches;
     this.communicationService.cartPrice = newCartPrice;
   }
-
-  ngOnInit(): void {
-  }
-
+  
 }

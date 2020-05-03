@@ -68,7 +68,7 @@
       </tr>
     </thead>
     <tbody>
-      <ng-container *ngFor="let tableRow of tableRows">
+      <ng-container *ngFor="let tableRow of tableData">
         <tr class="body-row" (click)="tableRow.showMore = !tableRow.showMore" [class.inactive]="!tableRow.showMore">
           <td>
             <i class="fa fa-star-o" aria-hidden="true" (click)="tableRow.isBrown = !tableRow.isBrown" [class.inactive]="tableRow.isBrown">

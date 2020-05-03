@@ -10,6 +10,9 @@ export class SidebarComponent implements OnInit {
 
   constructor(public communicationService: CommunicationService) { }
 
+  ngOnInit(): void {
+  }
+
   removeCartWatch(cartWatch: any) {
     cartWatch.isAddButtonDisabled = false;
     let newCartWatches = [];
@@ -88,9 +91,6 @@ export class SidebarComponent implements OnInit {
     
     this.communicationService.cartWatches = newCartWatches;
     this.communicationService.cartPrice = newCartPrice;
-  }
-  
-  ngOnInit(): void {
   }
 
 }
