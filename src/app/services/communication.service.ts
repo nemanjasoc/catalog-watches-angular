@@ -18,7 +18,7 @@ export class CommunicationService {
 
   getTableData(): Observable<TableRow[]> {
     return this.http.get<TableRow[]>(this.tableDataUrl).pipe(
-      tap(data => console.log("All: " + JSON.stringify(data))),
+      tap(data => JSON.stringify(data)),
       catchError(this.handleError)
     );
   }

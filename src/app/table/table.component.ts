@@ -56,12 +56,12 @@ export class TableComponent implements OnInit {
   constructor(public communicationService: CommunicationService) { }
 
   ngOnInit(): void {
-    this.communicationService.getTableData().subscribe({
-      next: tableData => {
+    this.communicationService.getTableData().subscribe(
+      tableData => {
         this.tableData = tableData;
       },
-      error: err => this.errorMessage = err
-    })
+      err => this.errorMessage = err
+    )
   }
 
   onChangeBrand(event): void {
@@ -105,7 +105,6 @@ export class TableComponent implements OnInit {
   }
 
   switchButtonAndAddWatch(tableRow: TableRow): void {
-    console.log("tableRow")
     tableRow.added = !tableRow.added;
     tableRow.quantity = 1;
     tableRow.isAddButtonDisabled = true;
